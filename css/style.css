@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,600;0,700;0,800;1,600;1,700&display=swap');
+*{
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+    margin:0;
+    padding: 0;
+}
+:root{
+    --primary-color: #2A897E;
+    --sec-bg: #DFE8EF;
+    --sec-color: #1B1E20;
+    --text-color: #ffffff;
+    --sec-color: #1B1E20;
+}
+.container{
+    padding: 0px 10px;
+}
+.nav{
+    display: flex;
+    position: absolute;
+    align-items: center;
+    gap: 12.3rem;
+    margin-bottom: -1px;
+}
+.logo{
+    cursor: pointer;
+    font-weight: 800;
+    font-size: 1.9rem;
+    letter-spacing: -1px;
+    color: var(--sec-color);
+    font-family: 'Open Sans', sans-serif;
+}
+.logo span{
+    color: var(--primary-color)
+}
+.nav-burger{
+    justify-self: end;
+    cursor: pointer;
+    z-index: 3;
+}
+.nav-burger span{
+    display: block;
+    width: 30px;
+    height: 5px;
+    border-radius: 30px;
+    background-color: var(--sec-color);
+    margin-bottom: 2px;
+}
+.nav-burger span:last-child{
+    margin-bottom: 0px;
+}
+nav ul{
+    z-index: 2;
+    opacity: .9;
+    display: block;
+    position: absolute;
+    list-style: none;
+    border-radius: 30px;
+    right: -20px;
+    top: -10px;
+    padding: 30px 70px 20px 10px; 
+    color: var(--text-color);
+    background-color: var(--sec-color);
+}
+.nav ul li a{
+    text-align: left;
+    font-weight: 300;
+    text-decoration: none;
+    color: var(--text-color);
+}
+.col2-flex{
+    /*display: flex;
+    flex-direction: column;*/
+    color: var(--text-color);
+}
+.hero{
+    z-index: 1;
+}   
+
+.hero-img img{
+    display:block;
+    max-width: 100%;
+}
+
+.hero-text{   
+    padding: 50px 0px;
+    background-image: repeating-linear-gradient(135deg, var(--primary-color), var(--primary-color) 10%, #3A988D 10%, #3A988D  25%);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.hero-hd{
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.hero-p{
+    margin-bottom: 30px;
+    line-height: 1.5rem;
+}
+
+.btn{
+    padding: 1rem 2rem;
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-btn{
+    background-color: var(--sec-color);
+    border-radius: 30px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    -ms-border-radius: 30px;
+    -o-border-radius: 30px;
+}
