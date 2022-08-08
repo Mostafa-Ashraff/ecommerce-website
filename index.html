@@ -1,8 +1,4 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
 <html>
     <head>
         <meta charset="utf-8">
@@ -15,39 +11,54 @@
     <body>
         <div class="container">
             <nav class="nav">
-                <p class="logo">Retail<span>hut</span></p>
-            <div class="nav-burger">
-                <span class="top"></span>
-                <span class="mid"></span>
-                <span class="bot"></span>
-            </div>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="">Shop</a></li>
-                <li><a href="">Portfolio</a></li>
-                <li><a href="">About Us</a></li>
-                <li><a href="">Contact</a></li>
-                <li><a href="">Blog</a></li>
-                <li><a href=""></a></li>
-            </ul>
-        
+                <div class="flex-nav">
+                    <p class="logo">Retail<span>hut</span></p>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="">Shop</a></li>
+                        <li><a href="">Portfolio</a></li>
+                        <li><a href="">About Us</a></li>
+                        <li><a href="">Contact</a></li>
+                        <li><a href="">Blog</a></li>
+                        <li><a href=""></a></li>
+                    </ul>
+                    <div class="nav-burger">
+                        <span class="top"></span>
+                        <span class="mid"></span>
+                        <span class="bot"></span>
+                    </div>
+                </div>
             </nav>
-        </div>    
-
+        </div> 
+        <!--
+        <nav class="mobile-nav">
+            <a href="#">Home</a>
+            <a href="#">Services</a>
+            <a href="#">Projects</a>
+            <a href="#">Contact</a>
+        </nav> -->
         <div class="hero col-2-flex">
             <div class="hero-img">
                 <img src="imgs/home/hero.jpg" alt="" srcset="">
             </div>
 
-                <div class="hero-text container">
+                <div class="hero-text">
                     <div class="container">
                         <h1 class="hero-hd">Best Quality Products For All Your Needs</h1>
                         <p class="hero-p">RetailHut is the perfect store to find everything you need for your home - your ultimate place of comfort and peace. We offer you the best home furnishing with well-designed and perfectly functional products to create a better everyday life for everyone.</p>
                         <a class="btn hero-btn"href="#products">View Products</a>
                     </div>
                 </div>
-
         </div>
-        <script src="main.js" async defer></script>
+
+        <div class="clients-flex">
+            <div class="client"><img src="imgs/home/clients/1.png" alt=""></div>
+            <div class="client"><img src="imgs/home/clients/2.png" alt=""></div>
+            <div class="client"><img src="imgs/home/clients/3.png" alt=""></div>
+            <div class="client"><img src="imgs/home/clients/4.png" alt=""></div>
+            <div class="client"><img src="imgs/home/clients/5.png" alt=""></div>
+            <div class="client"><img src="imgs/home/clients/6.png" alt=""></div>
+        </div>    
+        <script src="main.js"></script>
     </body>
 </html>
