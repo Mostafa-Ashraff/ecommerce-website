@@ -622,3 +622,7 @@ nav ul{
     right: -1px;
     color: var(--text-color);
 }
+
+footer{
+    display: flex;
+}
