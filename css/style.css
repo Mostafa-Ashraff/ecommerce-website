@@ -113,12 +113,11 @@
 .mobile-nav a:hover {
 	color: var(--primary-color)
 }
- 
+
 nav ul{
     display: none;
 }
-.nav ul li a{
-}
+
 .col2-flex{
     /*display: flex;
     flex-direction: column;*/
@@ -132,6 +131,131 @@ nav ul{
     display:block;
     max-width: 100%;
 }
+
+.hotspot-circles{
+    position: absolute
+}
+
+.chair-hotspot-circle{
+    position: absolute;
+    top: -129px;
+    left: 104px;
+}
+
+.sofa-hotspot-circle{
+    position: absolute;
+    top: -118px;
+    left: 244px;
+}
+
+.lamp-hotspot-circle{
+    position: absolute;
+    top: -318px;
+    left: 224px;
+    
+}
+
+.desk-hotspot-circle{
+    position: absolute;
+    top: -147px;
+    left: 319px;
+    
+}
+
+.anime-circle{
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}
+
+.anime-circle::before{
+    content:"";
+    position: absolute;
+    background-color: #dfe8ef38;
+    opacity: 1;
+    display: inline-block;
+    height: 40px;
+    width: 40px;    
+    z-index: 2;
+    border: 1px solid#1b1e207a;
+    border-radius: 50%;
+    animation-name: hotspot;
+    animation-duration: 4s;
+    animation-timing-function: cubic-bezier(0, 0, 0.78, 1.05);
+    animation-iteration-count: infinite;
+}
+/*
+.sofa-hotspot-circle .anime-circle::before{
+    animation-delay: 0.5s;
+}
+
+.desk-hotspot-circle .anime-circle::before{
+    animation-delay: -0.5s;
+}
+
+.lamp-hotspot-circle .anime-circle::before{
+    animation-delay: -0.8s;
+}
+*/
+@keyframes hotspot{
+    50%{
+        opacity: 0.5;
+        transform: scale(1.5);
+        -webkit-transform: scale(1.5);
+        -moz-transform: scale(1.5);
+        -ms-transform: scale(1.5);
+        -o-transform: scale(1.5);
+        border: none;
+}
+    
+    100%{
+        border: 1px solid#1B1E20;
+        transform: scale(1);
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -ms-transform: scale(1);
+        -o-transform: scale(1);
+}
+}
+
+.main-circle{
+    display: flex;
+    background-color: #dfe8ef9c;
+    opacity: 1;
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    z-index: 3;
+    border-radius: 50%;
+}
+
+.core-circle{
+    background-color: #fff;
+    opacity: 1;
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    z-index: 4;
+    border-radius: 50%;
+}
+/*
+.hotspot-circle::before{
+    content:"";
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    border-radius: 50%;
+    display: inline-block;
+    background-color: #868686a4;
+    z-index: -1;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}*/
 
 .hero-text{   
     padding: 50px 0px;
