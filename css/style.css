@@ -619,10 +619,86 @@ nav ul{
     padding: 12px 30px;
     background-color: var(--sec-color);
     border-radius:30px;
-    right: -1px;
+    right: -14px;
+    top: 0px;
     color: var(--text-color);
 }
 
 footer{
     display: flex;
+    flex-direction: column;
+    padding: 50px 20px;
+    gap: 20px;
+}
+
+footer div ul{
+    list-style: none;
+}
+
+footer div h2{
+    color: var(--sec-color);
+    font-size: 1.5rem;
+    font-weight: 800;
+    line-height: 1.3em;
+    margin-bottom: 10px;
+}
+
+footer div p, footer div li{
+    color: var(--sec-color);
+    font-size: 1rem;
+    font-weight: normal;
+    line-height: 1.5em;
+    margin-bottom: 8px;
+}
+
+footer div li a{
+    text-decoration: none;
+}
+footer div li a:visited{
+    color: var(--sec-color);
+}
+
+footer div li a:hover{
+    color: var(--primary-color);
+}
+
+.goal .socials span{
+    background-color: var(--sec-bg);
+    width: 45px;
+    height: 45px;
+    text-align: center;
+    display: inline-block;
+    border-radius:50%;
+    -webkit-border-radius:50%;
+    -moz-border-radius:50%;
+    -ms-border-radius:50%;
+    -o-border-radius:50%;
+    margin-right: 10px;
+}
+.goal .socials span i{
+    margin-top: 13.5px;
+    font-size: 1.2rem;
+}
+.goal .socials span i:hover{
+    color: var(--primary-color);
+}
+.goal p{
+    margin-bottom: 10px;
+}
+
+.goal .logo{
+    font-size: 2.5rem;
+}
+
+.information-flex{
+    display: flex;
+    justify-content: space-between;
+}
+
+.copyright p{
+    text-align: center;
+    color: rgba(75, 75, 75, 0.685);
+}
+.copyright hr{
+    color: rgba(255, 255, 255, 0.685);
 }
