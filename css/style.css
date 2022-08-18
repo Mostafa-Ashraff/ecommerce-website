@@ -184,19 +184,19 @@ nav ul{
     animation-timing-function: cubic-bezier(0, 0, 0.78, 1.05);
     animation-iteration-count: infinite;
 }
-/*
+
 .sofa-hotspot-circle .anime-circle::before{
-    animation-delay: 0.5s;
+    animation-delay: 0.2s;
 }
 
 .desk-hotspot-circle .anime-circle::before{
-    animation-delay: -0.5s;
+    animation-delay: -0.1s;
 }
 
 .lamp-hotspot-circle .anime-circle::before{
-    animation-delay: -0.8s;
+    animation-delay: -0.4s;
 }
-*/
+
 @keyframes hotspot{
     50%{
         opacity: 0.5;
