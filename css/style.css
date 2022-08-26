@@ -13,6 +13,9 @@
     --sec-color: #1B1E20;
     --text-color: #ffffff;
 }
+div>img{
+    max-width:100%
+}
 .container{
     padding: 0px 10px;
 }
@@ -371,6 +374,8 @@
     display: flex;
     flex-wrap: wrap;
     position: relative;
+    max-width: 1400px;
+    margin: auto;
 }
 .slider-card .next, .slider-card .right{
     position: absolute;
@@ -428,7 +433,7 @@ button.slick-next{
     position: relative;
     border-style: solid;
     border-width: 1px 1px 1px 1px;
-    max-width: 324px;
+    max-width: 300px;
     border-color: var(--sec-bg);
     border-radius: 10px;
     background-color: #f5f7fd;
@@ -601,7 +606,8 @@ button.slick-next{
 }
 .testimonials{
     display: flex;
-    justify-content:space-around;
+    flex-direction: column;
+    gap: 20px;
 }
 .testimonial{
     display: flex;
@@ -697,6 +703,7 @@ button.slick-next{
     flex-direction: column;
     justify-content: space-evenly;
     margin-bottom: 20px;
+    cursor: pointer;
 }
 
 .post .img{
@@ -902,12 +909,59 @@ footer div li a:hover{
     justify-content: space-between;
 }
 
+footer div:first-child, 
+footer div:last-child,  .information-flex> div{
+    max-width: 350px;
+}
+
 .copyright p{
     text-align: center;
     color: rgba(75, 75, 75, 0.685);
 }
 .copyright hr{
     color: rgba(255, 255, 255, 0.685);
+}
+
+/*******************************************************/
+
+/*About us page*/
+
+.about-h .hero-text{
+    padding: 150px 20px;
+}
+
+.about-grid{
+    display: grid;
+    padding: 20px;
+    gap: 30px;
+    grid-template-columns: repeat();
+}
+
+.grid-info{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.grid-info h6{
+    color: var(--primary-color);
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.2em;
+}
+
+.grid-info h2{
+    color: var(--sec-color);
+    font-size: 2rem;
+    font-weight: 800;
+    line-height: 1.2em;
+}
+
+.grid-info p{
+    color: var(--sec-color);
+    font-size: 1rem;
+    font-weight: normal;
+    line-height: 1.5em;
 }
 
 @media (max-width:850px) {
@@ -992,6 +1046,8 @@ footer div li a:hover{
     }
 
     .section-info{font-size: 1.2rem;}
+
+    .navbar{display: flex;}
     .hero {
         display: flex;
         flex-direction: row;
@@ -1018,6 +1074,19 @@ footer div li a:hover{
 
         flex: 50% 1 2;
         text-align: left;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: left;
+        gap: 30px;
+    }
+    .hero-text .btn {
+        padding: 1rem 4rem;
+        width: fit-content;;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-self: center;
     }
     .collectible {
         flex: 1 1 340px;
@@ -1051,9 +1120,13 @@ footer div li a:hover{
     }
     .posts {
         display: flex;
+        margin: auto;
+        max-width: 1400px;
+        flex-direction: row;
         flex-wrap: wrap;
         flex: 390px 1 1;
-        justify-content: space-between;
+        justify-content: center;
+        gap: 30px;
     }
 
     .post {
@@ -1069,5 +1142,98 @@ footer div li a:hover{
     }
     .explore {
         padding: 60px 0px;
+    }
+
+    .testimonials{
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+    }
+
+    footer{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 50px 50px;
+        gap: 20px;
+    }
+    .information-flex{
+        display: flex;
+        justify-content: space-evenly;
+        flex-grow: 2;
+        gap: 40px;
+    }
+    
+    .copyright{
+        padding: 10px;
+    }
+    
+
+    .copyright p{
+        text-align: center;
+        padding-top: 10px;
+        color: rgba(75, 75, 75, 0.685);
+    }
+
+    /*****************************************************/
+
+    /*About*/
+
+    .about-h .hero-hd{
+        text-align: center;
+        font-size: 4rem;
+    }
+
+    .about-grid{
+        max-width: 1400px;
+        margin: auto;
+        display: grid;
+        padding: 20px;
+        gap: 0px;
+        grid-template-columns: repeat(2, minmax(1fr, 300px));
+        grid-template-rows: minmax(1fr, 300px) 50px minmax(1fr, 300px);
+      /*  grid-template-areas: "img1 txt1"
+                            "img1 img2"
+                            "txt2 img2"                      
+        ;*/
+    }
+    
+    .grid-info{
+        display: flex;
+        padding: 20px;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .about-grid .img1{
+        grid-column: 1/2;
+        grid-row: 1/3;
+    }
+    .about-grid .img1 img, .about-grid .img2 img{
+        height: 100%
+    }
+
+    .about-grid .img2{
+        grid-row: 2/4;
+    }
+    
+    .grid-info h6{
+        color: var(--primary-color);
+        font-size: 1.3rem;
+        font-weight: 600;
+        line-height: 1.2em;
+    }
+    
+    .grid-info h2{
+        color: var(--sec-color);
+        font-size: 2.5rem;
+        font-weight: 800;
+        line-height: 1.2em;
+    }
+    
+    .grid-info p{
+        color: var(--sec-color);
+        font-size: 1.3rem;
+        font-weight: normal;
+        line-height: 1.5em;
     }
 }
