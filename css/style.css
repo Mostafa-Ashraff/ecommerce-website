@@ -125,7 +125,6 @@ div>img{
 }
 
 .mobile-nav {
-	
 	top: 0;
 	left: 100%;
 	width: 100%;
@@ -135,6 +134,10 @@ div>img{
 	background-color: var(--sec-bg);
 	padding-top: 120px;
 	transition: 0.4s;
+	-webkit-transition:;
+	-moz-transition:;
+	-ms-transition:;
+	-o-transition:;
 }
 
 .mobile-nav.is-active {
@@ -449,9 +452,10 @@ button.slick-next{
 }
 .card-text{
     background-color: var(--bg-sec);
-    padding: 10px;
+    padding: 0px 10px 10px 10px;
     position: relative;
     z-index: 91;
+
 }
 
 .card-text p:first-child{
@@ -469,25 +473,38 @@ button.slick-next{
     line-height: 1.2em;
     padding: 0px 0px 5px;
 }
+
 .card-text::before{
     cursor: pointer;
     display: inline-block;
-    z-index: 90;
     border-radius: 40px;
-    margin-bottom: 20px;
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
     font: var(--fa-font-solid);
-    font-size: 1.3rem;
+    font-size: 0rem;
     content: "\f07a";
     color: #fff;
+    margin-bottom: -10px;
     background-color: var(--primary-color);
-    padding: 1rem 2rem;
+    padding: 0;
+    transition: all 0.2s ease-in;
     -webkit-border-radius: 40px;
     -moz-border-radius: 40px;
     -ms-border-radius: 40px;
     -o-border-radius: 40px;
+    opacity: 0;
+    -webkit-transition: all 0.2s ease-in;
+    -moz-transition: all 0.2s ease-in;
+    -ms-transition: all 0.2s ease-in;
+    -o-transition: all 0.2s ease-in;
 }
+.slider-card:hover .card-text::before{
+    padding: 0.75rem 1.5rem;
+    font-size: 1.3rem;
+    transform: translateY(-67px);
+    opacity: 1;
+}
+
 
 .products-section{
     padding: 50px 0px;
@@ -991,11 +1008,11 @@ footer div:last-child,  .information-flex> div{
         box-shadow: 0 40px 60px rgba(0, 0, 0, 0.1);
         padding: 80px 0 0 10px;
         z-index: 20;
-        transition: 1s ease-in-out;
-        -webkit-transition: 1s ease-in-out;
-        -moz-transition: 1s ease-in-out;
-        -ms-transition: 1s ease-in-out;
-        -o-transition: 1s ease-in-out;
+        transition: all 1s ease-in-out;
+        -webkit-transition: all 1s ease-in-out;
+        -moz-transition: all 1s ease-in-out;
+        -ms-transition: all 1s ease-in-out;
+        -o-transition: all 1s ease-in-out;
 }
     .navbar.active{
         transition: 1s ease-in-out;
