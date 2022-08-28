@@ -13,8 +13,14 @@
     --sec-color: #1B1E20;
     --text-color: #ffffff;
 }
+
 div>img{
     max-width:100%
+}
+
+a{
+    text-decoration: none;
+
 }
 .container{
     padding: 0px 10px;
@@ -353,7 +359,7 @@ div>img{
     max-width: 100%;
 }
 
-.slider-section{
+.slider-section, .portfolio-section{
     padding: 50px 20px;
     text-align: center;
 }
@@ -373,7 +379,7 @@ div>img{
     line-height: 1.5em;
     padding: 20px 0px 50px;
 }
-.slider{
+.slider, .portfolio{
     display: flex;
     flex-wrap: wrap;
     position: relative;
@@ -432,7 +438,7 @@ button.slick-next{
     color: var(--sec-bg)
 }
 
-.slider-card{
+.slider-card, .portfolio-card{
     position: relative;
     border-style: solid;
     border-width: 1px 1px 1px 1px;
@@ -670,6 +676,10 @@ button.slick-next{
     line-height: 1.2em;
 }
 
+
+/************************************************************************/
+
+
 /*Features*/
 
 .features{
@@ -700,6 +710,8 @@ button.slick-next{
     font-size: 1rem;
     margin-bottom: 1rem;
 }
+
+/************************************************************************/
 
 /*Blog*/
 
@@ -821,6 +833,11 @@ button.slick-next{
     color: var(--sec-color);
 }
 
+
+/************************************************************************/
+
+
+
 /*newsletter*/
 
 .newsletter{
@@ -830,10 +847,12 @@ button.slick-next{
 
 .email{
     position: relative;
+    max-width: 500px;
+    margin: auto;
 }
 .email input{
     padding: 15px 45px 15px 15px;
-    min-width: 350px;
+    width: 350px;
     border: 1px solid#1B1E20;
     border-radius: 25px;
     -webkit-border-radius: 25px;
@@ -981,6 +1000,90 @@ footer div:last-child,  .information-flex> div{
     line-height: 1.5em;
 }
 
+
+/************************************************************************/
+
+
+/*Portfolio*/
+
+.portfolio{
+    justify-content: space-evenly;
+}
+
+.portfolio-card{
+    cursor: pointer;
+    max-width: 280px;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    
+}
+.portfolio-card img{
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.portfolio-card .card-text{
+    background-color:#fff;
+    position: relative;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.portfolio-card .card-text p:last-of-type{
+    font-weight: 800;
+}
+
+.portfolio-card .card-text p:last-of-type a{
+    position: relative;
+    color: var(--primary-color);
+    font-weight: 400;
+}
+.portfolio-card .card-text p:last-of-type a::after{
+    content:"";
+    display: block;
+    position: absolute;
+    top: 101%;
+    left: 0%;
+    background-color: var(--primary-color);
+    width: 0%;
+    height: 2px;
+    transition: all 0.3s ease-in;
+    -webkit-transition: all 0.3s ease-in;
+    -moz-transition: all 0.3s ease-in;
+    -ms-transition: all 0.3s ease-in;
+    -o-transition: all 0.3s ease-in;
+}
+
+.portfolio-card:hover .card-text p:last-of-type a::after{
+    width: 87%;
+}
+
+.portfolio-card .card-text p:last-of-type a span{
+    margin-right: 5px;
+}
+
+.portfolio-card:hover img{
+    filter: brightness(0.3);
+    
+}
+.portfolio-card:hover::before{
+    position: absolute;
+    right: 48%;
+    top: 38%;
+    display: inline-block;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    font: var(--fa-font-solid);
+    font-size: 1rem;
+    width: 20px;
+    height: 20px;
+    content: "\f06e";
+    color: #fff;
+    z-index: 10;
+}
 @media (max-width:850px) {
     .nav{
         position: fixed;
@@ -1167,6 +1270,11 @@ footer div:last-child,  .information-flex> div{
         gap: 20px;
     }
 
+    
+    .email input{
+        width: 500px;
+    }
+    
     footer{
         display: flex;
         flex-direction: row;
