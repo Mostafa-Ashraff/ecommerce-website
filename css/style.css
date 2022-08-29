@@ -349,15 +349,28 @@ a{
     display: flex;
     flex-wrap: wrap;
     padding: 20px 5px;
+    max-width: 1400px;
+    margin: auto;
 }
 
 .client{
-    flex:1 1 105px;
+    flex:1 1 100px;
+    
 }
 
 .client img{
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
     max-width: 100%;
 }
+
+.client:hover img{
+    filter: brightness(0.2);    
+}
+
 
 .slider-section, .portfolio-section{
     padding: 50px 20px;
@@ -1157,6 +1170,98 @@ footer div:last-child,  .information-flex> div{
     -o-border-radius: 30px;
 }
 
+/************************************************/
+
+/******Prodcuts Details*******/
+
+.details{
+    padding: 50px 10px;
+}
+
+.details-info{
+    padding: 30px 10px;
+}
+
+.details-info h2{
+    font-weight: 700;
+    color: var(--sec-color);
+}
+
+.details-info .price{
+    color: var(--primary-color);
+    font-size: 1.3rem;
+}
+.details-info .btns a:first-of-type{
+    background-color:#fff;
+    color: var(--sec-color);
+    border: 1px solid var(--sec-color);
+}
+
+.details-info .btns a{
+    padding: 1rem 2rem;
+    display: inline-block;
+    border-radius: 30px;
+    background-color: var(--sec-color);
+    color: #fff;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    -ms-border-radius: 30px;
+    -o-border-radius: 30px;
+    transition: all 0.3s ease-in;
+    -webkit-transition: all 0.3s ease-in;
+    -moz-transition: all 0.3s ease-in;
+    -ms-transition: all 0.3s ease-in;
+    -o-transition: all 0.3s ease-in;
+}
+
+.details-info .btns a:first-of-type:hover{
+    background-color: var(--sec-color);
+    color: #fff;
+}
+
+.details-info .btns a:last-of-type:hover{
+    background-color:#fff;
+    color: var(--sec-color);
+    border: 1px solid var(--sec-color);
+}
+
+.details-info p{
+    padding: 10px 0px;
+}
+
+.details-info .dimensions{
+    font-weight: 700;
+}
+
+/**************************************************/
+
+/******portfolio details*******/
+
+.port-details{
+    padding: 50px 20px;
+}
+
+.port-details-grid{
+    display: flex;
+    flex-direction: column;
+}
+
+.port-details-grid .photos{
+    display: flex;
+    gap: 5px;
+}
+
+.port-details div h2{
+    padding: 20px 0px 0px;
+    font-size: 1.4rem;
+    color: var(--sec-color);
+}
+.port-details div p{
+    font-size: 0.9rem;
+    padding: 10px 0px;
+    color: var(--sec-color);
+}
+
 
 @media (max-width:850px) {
     .nav{
@@ -1185,11 +1290,11 @@ footer div:last-child,  .information-flex> div{
         box-shadow: 0 40px 60px rgba(0, 0, 0, 0.1);
         padding: 80px 0 0 10px;
         z-index: 20;
-        transition: all 1s ease-in-out;
-        -webkit-transition: all 1s ease-in-out;
-        -moz-transition: all 1s ease-in-out;
-        -ms-transition: all 1s ease-in-out;
-        -o-transition: all 1s ease-in-out;
+        transition: all 0.3s ease-in-out;
+        -webkit-transition: all 0.3s ease-in-out;
+        -moz-transition: all 0.3s ease-in-out;
+        -ms-transition: all 0.3s ease-in-out;
+        -o-transition: all 0.3s ease-in-out;
 }
     .navbar.active{
         transition: 1s ease-in-out;
@@ -1246,7 +1351,8 @@ footer div:last-child,  .information-flex> div{
         display: flex;
         flex-direction: row;
         top: 20px;
-    }
+        position: relative;    
+}
     .hero-img {
         order: 2;
         flex: 50% 1 2;
@@ -1282,6 +1388,76 @@ footer div:last-child,  .information-flex> div{
         align-items: center;
         align-self: center;
     }
+
+
+    .hotspot-circles {
+        position: absolute;
+        z-index: 999;
+        top: 86%;
+        right: 30%;
+    }
+
+    .anime-circle::before {
+        height: 60px;
+        width: 60px;
+    }
+
+    .main-circle{
+        height: 60px;
+        width: 60px;
+    }
+
+    .core-circle {
+        height: 30px;
+        width: 30px;
+    }
+
+    .chair-hotspot-circle {
+        position: absolute;
+        top: -161px;
+        left: 48px;
+    }
+    /*
+    .chair-hotspot-circle:after{
+        content:"LoungeChair $399";
+        color: var(--sec-color);
+        background-color: #fff;
+        width: 100px;
+        padding: 10px;
+    }*/
+    .sofa-hotspot-circle {
+        position: absolute;
+        top: -110px;
+        left: 204px;
+    }
+
+    .lamp-hotspot-circle {
+        position: absolute;
+        top: -446px;
+        left: 203px;
+    }
+
+    .clients-flex{
+        padding: 50px 5px;
+        max-width: 1400px;
+        margin: auto;
+    }
+    
+    .products-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        column-gap: 0px;
+        gap: 0px;
+        max-width:100%;
+        justify-content: stretch;
+        align-items:stretch;
+    }
+
+    .product img {
+        height: 100%;
+    }
+
     .collectible {
         flex: 1 1 340px;
         display: flex;
@@ -1312,6 +1488,15 @@ footer div:last-child,  .information-flex> div{
         flex-wrap: wrap;
         justify-content: center;
     }
+
+    .feature{
+        margin-right: 20px;
+    }
+
+    .feature:last-of-type{
+        margin-right: 0px;
+    }
+
     .posts {
         display: flex;
         margin: auto;
@@ -1501,10 +1686,6 @@ footer div:last-child,  .information-flex> div{
         gap: 10px;
         max-width: 100%;
     }
-
-    .contact-grid form div input{
-
-    }
     
     .contact-grid form>input:last-of-type{
         background-color:var(--sec-color);
@@ -1519,5 +1700,127 @@ footer div:last-child,  .information-flex> div{
         -ms-border-radius: 30px;
         -o-border-radius: 30px;
     }
+    /******Prodcuts Details*******/
+
+.details{
+    margin: auto;
+    display: flex;
+    justify-content:center;
+    gap: 30px;
+    max-width: 1400px;
+    padding: 80px 10px;
+}
+.details>div:first-of-type{
+    flex-basis: 239%;
+    flex-grow: 2;
+}
+.details-info{
+    padding: 30px 10px;
+}
+
+.details-info h2{
+    font-weight: 700;
+    color: var(--sec-color);
+}
+
+.details-info .price{
+    color: var(--primary-color);
+    font-size: 1.3rem;
+}
+
+.details-info .btns{
+    display: flex;
+    gap: 10px;
+}
+
+.details-info .btns a:first-of-type{
+    background-color:#fff;
+    color: var(--sec-color);
+    border: 1px solid var(--sec-color);
+}
+
+.details-info .btns a{
+    padding: 1rem 2rem;
+    display: inline-block;
+    border-radius: 30px;
+    background-color: var(--sec-color);
+    color: #fff;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    -ms-border-radius: 30px;
+    -o-border-radius: 30px;
+    transition: all 0.3s ease-in;
+    -webkit-transition: all 0.3s ease-in;
+    -moz-transition: all 0.3s ease-in;
+    -ms-transition: all 0.3s ease-in;
+    -o-transition: all 0.3s ease-in;
+}
+
+.details-info .btns a:first-of-type:hover{
+    background-color: var(--sec-color);
+    color: #fff;
+}
+
+.details-info .btns a:last-of-type:hover{
+    background-color:#fff;
+    color: var(--sec-color);
+    border: 1px solid var(--sec-color);
+}
+
+.details-info p{
+    padding: 10px 0px;
+}
+
+.details-info .dimensions{
+    font-weight: 700;
+}
+
+/**************************************************/
+
+/******portfolio details*******/
+.port-details{
+    padding: 50px 20px;
+    max-width: 1400px;
+    margin: auto;
+}
+.port-details-grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, minmax(347px, 490px));
+    flex-direction: column;
+    max-width: 1400px;
+    margin: auto;
+    gap: 20px;
+}
+
+.port-details-grid>div>img{
+    max-height: 100%;
+}
+
+.port-details-grid>div:first-of-type{
+    grid-row: 1/3;
+}
+
+.port-details-grid .photos{
+    display: flex;
+    gap: 5px;
+}
+
+.port-details div:last-of-type{
+    padding: 50x;
+}
+
+.port-details div h2{
+    font-size: 2rem;
+    color: var(--sec-color);
+}
+.port-details div p{
+    font-size: 1.1rem;
+    padding: 10px 0px;
+    color: var(--sec-color);
+    max-width: 100%;
+}
+
+
 }
 
