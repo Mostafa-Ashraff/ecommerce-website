@@ -24,7 +24,7 @@ menu.addEventListener('click', ()=>{
 cards = document.querySelectorAll('.slider-card');
 
 cards.forEach(card => {
-    card.addEventListener('click', createCartItem)
+    card.addEventListener('click', createCartItem())
 });
 
 function createCartItem(){
@@ -75,6 +75,14 @@ function createCartItem(){
 
         cartDiv.appendChild(cartItem);
 }
+
+
+let removeSpan = document.querySelectorAll('.remove-item');
+
+removeSpan.forEach(btn => btn.addEventListener('click', ()=>{
+
+    console.log(btn.parentElement.parentElement.remove());
+}))
 /*
 const totalDiv = document.createElement('div');
 totalDiv.className = 'total-price';
@@ -86,3 +94,4 @@ const paymentDiv = document.createElement('div');
 const total = document.createElement('h2');
 const totalPrice = document.createElement('p');
 totalPrice.className = 'product-price';*/
+
