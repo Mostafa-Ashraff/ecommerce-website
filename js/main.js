@@ -21,59 +21,121 @@ menu.addEventListener('click', ()=>{
 
 
 
-cards = document.querySelectorAll('.slider-card');
+const cards = document.querySelectorAll('.slider-card');
 
 cards.forEach(card => {
-    card.addEventListener('click', createCartItem())
+let cartItem = document.createElement('div');
+cartItem.className = 'cart-item';
+
+const imgDiv = document.createElement('div');
+
+let itemImg = document.createElement('img');
+itemImg.src =  `${card.firstElementChild.src}`;
+imgDiv.appendChild(itemImg);
+
+cartItem.appendChild(imgDiv);
+
+const detailsDiv = document.createElement('div');
+detailsDiv.className = 'product-details';
+const itemHd = document.createElement('h3');
+itemHd.className = 'product-name';
+itemHd.textContent = `${card.children[1].children[0].textContent}`;
+const itemPrice = document.createElement('p');
+itemPrice.className = 'product-price';
+itemPrice.textContent = `${card.children[1].children[1].textContent}`;
+
+
+detailsDiv.appendChild(itemHd);
+detailsDiv.appendChild(itemPrice);
+
+cartItem.appendChild(detailsDiv);
+
+const inputQuan = document.createElement('input');
+inputQuan.className = 'product-quantity';
+cartItem.appendChild(inputQuan);
+
+const sbTotal = document.createElement('p');
+sbTotal.className = 'product-subtotal';
+cartItem.appendChild(sbTotal);
+
+const removeSpan = document.createElement('span');
+removeSpan.innerHTML = '<i class="fa-solid fa-x remove-item"></i>';
+cartItem.appendChild(removeSpan);
+
+
+const hr = document.createElement('hr');
+cartItem.appendChild(hr);
+
+const cartDiv = document.querySelector('.cart');
+
+cartDiv.appendChild(cartItem);
 });
 
+cards.forEach(card => card.addEventListener('click',));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+let card = cards[1];
+
 function createCartItem(){
-    
-        const cartItem = document.createElement('div');
-        cartItem.className = 'cart-item';
+    let cartItem = document.createElement('div');
+    cartItem.className = 'cart-item';
 
-        const imgDiv = document.createElement('div');
+    const imgDiv = document.createElement('div');
 
-        let itemImg = document.createElement('img');
-        itemImg.src =  card.firstElementChild.src
-        imgDiv.appendChild(itemImg);
+    let itemImg = document.createElement('img');
+    itemImg.src =  `${card.firstElementChild.src}`;
+    imgDiv.appendChild(itemImg);
 
-        cartItem.appendChild(imgDiv);
+    cartItem.appendChild(imgDiv);
 
-        const detailsDiv = document.createElement('div');
-        detailsDiv.className = 'product-details';
-        const itemHd = document.createElement('h3');
-        itemHd.className = 'product-name';
-        itemHd.textContent = card.children[1].children[0].textContent;
-        const itemPrice = document.createElement('p');
-        itemPrice.className = 'product-price';
-        itemPrice.textContent = card.children[1].children[1].textContent;
-
-
-        detailsDiv.appendChild(itemHd);
-        detailsDiv.appendChild(itemPrice);
-
-        cartItem.appendChild(detailsDiv);
-
-        const inputQuan = document.createElement('input');
-        inputQuan.className = 'product-quantity';
-        cartItem.appendChild(inputQuan);
-
-        const sbTotal = document.createElement('p');
-        sbTotal.className = 'product-subtotal';
-        cartItem.appendChild(sbTotal);
-
-        const removeSpan = document.createElement('span');
-        removeSpan.innerHTML = '<i class="fa-solid fa-x remove-item"></i>';
-        cartItem.appendChild(removeSpan);
+    const detailsDiv = document.createElement('div');
+    detailsDiv.className = 'product-details';
+    const itemHd = document.createElement('h3');
+    itemHd.className = 'product-name';
+    itemHd.textContent = `${card.children[1].children[0].textContent}`;
+    const itemPrice = document.createElement('p');
+    itemPrice.className = 'product-price';
+    itemPrice.textContent = `${card.children[1].children[1].textContent}`;
 
 
-        const hr = document.createElement('hr');
-        cartItem.appendChild(hr);
+    detailsDiv.appendChild(itemHd);
+    detailsDiv.appendChild(itemPrice);
 
-        const cartDiv = document.querySelector('.cart');
+    cartItem.appendChild(detailsDiv);
 
-        cartDiv.appendChild(cartItem);
+    const inputQuan = document.createElement('input');
+    inputQuan.className = 'product-quantity';
+    cartItem.appendChild(inputQuan);
+
+    const sbTotal = document.createElement('p');
+    sbTotal.className = 'product-subtotal';
+    cartItem.appendChild(sbTotal);
+
+    const removeSpan = document.createElement('span');
+    removeSpan.innerHTML = '<i class="fa-solid fa-x remove-item"></i>';
+    cartItem.appendChild(removeSpan);
+
+
+    const hr = document.createElement('hr');
+    cartItem.appendChild(hr);
+
+    const cartDiv = document.querySelector('.cart-items');
+
+    cartDiv.appendChild(cartItem);
+        
 }
 
 

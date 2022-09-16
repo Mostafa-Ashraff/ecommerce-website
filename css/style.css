@@ -1298,7 +1298,7 @@ footer div:last-child,  .information-flex> div{
     margin: auto;
 }
 
-.cart > div{
+.cart-items > div, .total-price{
     display: flex;
     justify-content: space-evenly;
     margin: 20px 0px;
@@ -1324,6 +1324,7 @@ footer div:last-child,  .information-flex> div{
 .cart-item>*{
     flex-basis: 90px;
 }*/
+
 
 .cart-item > div{
     max-width: 90px;
