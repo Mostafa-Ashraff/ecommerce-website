@@ -7,6 +7,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">     
         <script src="https://kit.fontawesome.com/a8039b1ca6.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
         <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
@@ -35,7 +36,8 @@
         <section class="slider-section">
             <h2 class="section-hd">Bestsellers Of The Week</h2>
             <p class="section-info">Check out our most popular products from the week & grab them quick before they go off the shelf!</p>
-            <div class="slider">
+            <div class="slider" id="products">
+                <!--
                 <div class="slider-card">
                     <img src="imgs/home/slider/1.jpg" alt="">
                     <div class="card-text">
@@ -105,6 +107,7 @@
                         <p>Retro ‘98 Light</p>
                         <p>$315.99</p>
                     </div>
+                    
                 </div>
                 <div class="slider-card">
                     <img src="imgs/home/collec/3.jpg" alt="">
@@ -119,8 +122,11 @@
                         <p>Accent Chair</p>
                         <p>$265.99</p>
                     </div>
+                    
                 </div>
+                -->
             </div>
+
         </section>
         <div class="explore">
             <p>Order Now To Enjoy An Express Delivery In 24hrs!</p>
@@ -134,6 +140,62 @@
                 <a href="">Subscribe</a>
             </div>
         </section>
+        <section class="cart">
+            <!-- 
+            <div class="cart-titles">
+                <p>Product</p>
+                <p>Price</p>
+                <p>Quantity</p>
+                <p>Subtotal</p>
+            </div>-->
+            <div class="cart-items">
+                <div class="cart-item">
+                    <div>
+                        <img src="imgs/home/slider/1.jpg" alt="">    
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-name">Chair</h3>
+                        <p class="product-price">$389</p>
+                    </div>
+                    <input class="product-quantity" type="number" name="" id="">
+                    <p class="product-subtotal">$389</p>
+                    <span><i class="fa-solid fa-x remove-item"></i></span>
+                </div>
+                <div class="cart-item">
+                    <div>
+                        <img src="imgs/home/slider/1.jpg" alt="">    
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-name">Chair</h3>
+                        <p class="product-price">$389</p>
+                    </div>
+                    <input class="product-quantity" type="number" name="" id="">
+                    <p class="product-subtotal">$389</p>
+                    <span><i class="fa-solid fa-x remove-item"></i></span>
+                </div>
+                <div class="cart-item">
+                    <div>
+                        <img src="imgs/home/slider/1.jpg" alt="">    
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-name">Chair</h3>
+                        <p class="product-price">$389</p>
+                    </div>
+                    <input class="product-quantity" type="number" name="" id="">
+                    <p class="product-subtotal">$389</p>
+                    <span><i class="fa-solid fa-x remove-item"></i></span>
+                </div>
+            </div>
+
+            <hr>
+            <div class="total-price">
+                    <h2>Total</h2>
+                    <p class="product-price">$389</p>
+            </div>
+            <div>
+                <a class="btn" href="">proceed to payment</a>
+            </div>
+        </section> 
         <footer>
             <div class="goal">
                 <p class="logo">Retail<span>hut</span></p>
@@ -184,5 +246,6 @@
             <p>&copy; copyright all right reserved.</p>
         </div>
         <script src="js/main.js"></script>
+
     </body>
 </html>
