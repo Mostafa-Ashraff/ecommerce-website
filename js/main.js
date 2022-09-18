@@ -96,7 +96,7 @@ let generateCard = ()=>{
     return(shopCards.innerHTML = productsData.map((product)=>{
         let {id, name, img, price} = product;
         return `
-        <div class="slider-card" data-id="${id}">
+        <div class="slider-card" id="${id}">
                     <img src="${img}" alt="">
                     <div class="card-links">
                     <span class="add-to-cart-btn"><i><i class="bi bi-cart3"></i></i></span>
