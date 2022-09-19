@@ -17,106 +17,30 @@ menu.addEventListener('click', ()=>{
 
 //glider setup
 
-let productsData = [
-    {
-        id: 'a1',
-        name: 'Lounge Chair',
-        img: 'imgs/home/slider/1.jpg',
-        price: '$395.99'
-    },
-    {
-        id: 'a2',
-        name: 'Retro ‘98 Light',
-        img: 'imgs/home/slider/2.jpg',
-        price: '$315.99'
-    },
-    {
-        id: 'a3',
-        name: 'Dining Chairs',
-        img: 'imgs/home/slider/3.jpg',
-        price: '$499.99'
-    },
-    {
-        id: 'a4',
-        name: 'Accent Chair',
-        img: 'imgs/home/slider/4.jpg',
-        price: '$265.99'
-    },
-    {
-        id: 'a5',
-        name: 'Wooden Chair',
-        img: 'imgs/shop/1.jpg',
-        price: '$286.99'
-    },
-    {
-        id: 'a6',
-        name: 'Bedside Table',
-        img: 'imgs/shop/2.jpg',
-        price: '$312.49'
-    },
-    {
-        id: 'a7',
-        name: 'Stylish Clay Jug',
-        img: 'imgs/shop/3.jpg',
-        price: '$312.79'
-    },
-    {
-        id: 'a8',
-        name: 'Green, Sleek Sofa',
-        img: 'imgs/shop/4.jpg',
-        price: '$449.49'
-    },
-    {
-        id: 'a9',
-        name: 'Clay Flower Vase',
-        img: 'imgs/home/collec/4.jpg',
-        price: '$286.49'
-    },
-    {
-        id: 'a10',
-        name: 'Kid\'s Chair',
-        img: 'imgs/home/collec/3.jpg',
-        price: '$319.49'
-    },
-    {
-        id: 'a11',
-        name: 'Flower Vase',
-        img: 'imgs/home/collec/2.jpg',
-        price: '$312.49'
-    },
-    {
-        id: 'a12',
-        name: 'Coffee Thermos ',
-        img: 'imgs/home/collec/1.jpg',
-        price: '$49.49'
-    },
-];
-let shopCards = document.getElementById('products');
-let generateCard = ()=>{
-    return(shopCards.innerHTML = productsData.map((product)=>{
-        let {id, name, img, price} = product;
-        return `
-        <div class="slider-card" id="${id}">
-                    <img src="${img}" alt="">
-                    <div class="card-links">
-                    <span class="add-to-cart-btn"><i><i class="bi bi-cart3"></i></i></span>
-                    <span><i class="bi bi-eye-fill"></i></span>
-                    </div>
-                    <div class="card-text">
-                        <p>${name}</p>
-                        <p>${price}</p>
-                    </div>
-
-        </div>
-        `
-    }).join('')
-)}
-
-generateCard();
 
 
 
+let basket = [];
 const addToCartBtns = document.querySelectorAll('.add-to-cart-btn');
+const cartItemsDiv = document.querySelector('.cart-items');
+
+addToCartBtns.forEach(btn => btn.addEventListener('click', (()=>{
+    let selectedProduct = btn.parentElement.parentElement;
+    let product = productsData.filter((product)=>product.id === selectedProduct.id);
+    if(!basket.find((x)=>x.id ===product[0].id)){
+        product[0].quantity = 1;
+        basket.push(product[0]);
+    }else{
+        let basketProduct = basket.find((x)=>x.id ===product[0].id);
+        
+        basketProduct.quantity += 1;
+
+    }
+    localStorage.setItem("data", JSON.stringify(basket));
+    console.log(basket);
+
+})))
+
 /*
 cards.forEach(card => {
 let cartItem = document.createElement('div');
@@ -166,12 +90,22 @@ const cartDiv = document.querySelector('.cart');
 cartDiv.appendChild(cartItem);
 });
 */
+
+
+
+
+
+
+/*
 addToCartBtns.forEach(Btn => Btn.addEventListener('click', ()=>{
-    let productID = Btn.parentElement.parentElement.dataset.id;
-    let prod = productsData.filter((product)=>{
-        product.id === productID;
+    let productID = Btn.parentElement.parentElement.id;
+    console.log(productID)
+    let product = productsData.find((product)=>{
+        product.id === `${productID}`;
     });
+    console.log(product)
     product = {...prod};
+
     console.log(product)
     let cartItem = document.createElement('div');
     cartItem.className = 'cart-item';
@@ -199,9 +133,14 @@ addToCartBtns.forEach(Btn => Btn.addEventListener('click', ()=>{
 
     cartItem.appendChild(detailsDiv);
 
-    const inputQuan = document.createElement('input');
-    inputQuan.className = 'product-quantity';
-    cartItem.appendChild(inputQuan);
+    const quantityDiv = document.createElement('div');
+    quantityDiv.className = 'cart-btns';
+    quantityDiv.innerHTML = `
+    <i onclick="increment(${id})" class="bi bi-dash-lg"></i>
+    <div id="" class="quantity">1</div>
+    <i class="bi bi-plus-lg"></i>
+    `
+    cartItem.appendChild(quantityDiv);
 
     const sbTotal = document.createElement('p');
     sbTotal.className = 'product-subtotal';
@@ -219,7 +158,7 @@ addToCartBtns.forEach(Btn => Btn.addEventListener('click', ()=>{
     console.log(Btn.parentElement.parentElement.dataset.id)
 }));
 
-
+*/
 
 
 
@@ -287,12 +226,11 @@ function createCartItem(){
 }
 
 
-let removeSpan = document.querySelectorAll('.remove-item');
 
-removeSpan.forEach(btn => btn.addEventListener('click', ()=>{
 
-    console.log(btn.parentElement.parentElement.remove());
-}))
+
+
+
 /*
 const totalDiv = document.createElement('div');
 totalDiv.className = 'total-price';

@@ -1455,7 +1455,16 @@ footer div:last-child,  .information-flex> div{
     display: flex;
     justify-content:space-between;
     width: 150px;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
+    color: var(--sec-color)
+}
+
+.cart-btns .bi-plus-lg{
+    color: var(--primary-color);
+}
+
+.bi-plus-lg, .bi-dash-lg{
+    cursor: pointer;
 }
 
 @media (max-width:850px) {
