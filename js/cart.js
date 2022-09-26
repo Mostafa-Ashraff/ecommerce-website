@@ -64,3 +64,10 @@ let generateCartItem = ()=>{
 generateCartItem();
 */
 
+let increment= ()=>{
+
+}
+
+let decrement= ()=>{
+    
+}
