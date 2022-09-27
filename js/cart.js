@@ -11,6 +11,7 @@ basket.forEach((item)=>{
     console.log(item);
     let cartItem = document.createElement('div');
     cartItem.className = 'cart-item';
+    cartItem.setAttribute('id', `${item.id}`)
     cartItem.innerHTML = `
         <div>
         <img src="${item.img}" alt="">    
@@ -20,9 +21,9 @@ basket.forEach((item)=>{
             <p class="product-price">$${item.price}</p>
         </div>
         <div class="cart-btns">
-            <i class="bi bi-dash-lg"></i>
+            <i  class="bi bi-dash-lg"></i>
             <div id="" class="quantity">${item.quantity}</div>
-            <i class="bi bi-plus-lg"></i>
+            <i onclick="increment(${item.id})" class="bi bi-plus-lg"></i>
         </div>
         <p class="product-subtotal">$ ${item.price * item.quantity}</p>
         <span><i class="fa-solid fa-x remove-item"></i></span>
@@ -64,10 +65,26 @@ let generateCartItem = ()=>{
 generateCartItem();
 */
 
-let increment= ()=>{
+let increment = (id)=>{
+    let selectedItem = id;
+    let search = basket.find((x) => x.id === selectedItem.id);
+    console.log(search);
+    if (search === undefined) {
+      basket.push({
+        id: selectedItem.id,
+        quantity: 1,
+      });
+    } else {
+    search.quantity += 1;
+}};
 
-}
+let addItemsBtn = document.querySelectorAll('.bi-plus-lg');
+addItemsBtn.forEach(btn => btn.addEventListener('click', increment()))
 
 let decrement= ()=>{
     
-}
+};
+
+let update= ()=>{
+    
+};
