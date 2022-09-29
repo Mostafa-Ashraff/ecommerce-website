@@ -8,27 +8,84 @@ let removeItem = ()=>{
 } 
 removeItem();
 
-let decrement = (id)=>{
-    
+let increment = (id)=>{
     let selectedItem = id;
+    //console.log(selectedItem);
     let ItemInBasket = basket.find((x) => x.id === selectedItem.id);
-    ItemInBasket.quantity -= 1;
-    if(ItemInBasket.quantity ===0){
-        removeItem();
-        //document.getElementById(`${ItemInBasket.id}`).remove();
-        console.log(selectedItem.id);
-        console.log(ItemInBasket);
-    }
-    
-    
-    
-    
-    
+    ItemInBasket.quantity += 1;
+    //console.log(ItemInBasket);
     quantity = ItemInBasket.quantity;
     localStorage.setItem("data", JSON.stringify(basket));
     cartItemsDiv.innerHTML = '';
     generateCartItems();
+    calcTotalPrice();
+    calcCartItems();
 };
+
+let decrement = (id)=>{
+    
+    let selectedItem = id;
+    let ItemInBasket = basket.find((x) => x.id === selectedItem.id);
+    
+    if(ItemInBasket.quantity === 1){
+        ItemInBasket.quantity -= 1;
+        selectedItem.remove();
+        
+        basket = basket.filter((item)=>item.quantity !== 0)
+        localStorage.setItem("data", JSON.stringify(basket));
+        calcTotalPrice();
+        calcCartItems();
+        return;
+
+        //document.getElementById(`${ItemInBasket.id}`).remove();
+        console.log(selectedItem.id);
+        return;
+    }else if(ItemInBasket.quantity > 1){
+        ItemInBasket.quantity -= 1;
+        localStorage.setItem("data", JSON.stringify(basket));
+        calcTotalPrice();
+        calcCartItems();
+        generateCartItems();
+    }
+    
+
+    /*
+    basket = basket.filter((item)=>{
+        item.quantity !== 0;
+    })
+    */
+    
+    //console.log(basket);
+    quantity = ItemInBasket.quantity;
+    localStorage.setItem("data", JSON.stringify(basket));
+    cartItemsDiv.innerHTML = '';
+    generateCartItems();
+    
+};
+
+let calcTotalPrice = () =>{
+    let totalPrice = document.getElementById('total-price');
+    let amount = basket.map(item=>{
+        return item.price * item.quantity
+    }).reduce((prev, curr)=> prev + curr, 0).toFixed(2);
+    
+    //console.log(amount);
+
+    totalPrice.textContent = `$${amount}`
+}
+/*
+let calcCartItems = () =>{
+    let itemsDiv = document.querySelector('.items-no');
+    console.log(itemsDiv)
+    let numberOfItems = basket.map(item=>{
+        return item.quantity
+    }).reduce((prev, curr)=> prev + curr, 0);
+    localStorage.setItem("cartItems", numberOfItems);
+    itemsDiv.textContent = `${localStorage.getItem(cartItems)}`
+
+    console.log(numberOfItems);
+
+}*/
 
 
 function generateCartItems(){
@@ -46,21 +103,23 @@ function generateCartItems(){
                 <p class="product-price">$${item.price}</p>
             </div>
             <div class="cart-btns">
-                <i onclick="decrement(${item.id})" class="bi bi-dash-lg"></i>
+                <i onclick="decrement(${item.id})"  class="bi bi-dash-lg"></i>
                 <div id="quantity" class="quantity">${item.quantity}</div>
                 <i onclick="increment(${item.id})" class="bi bi-plus-lg"></i>
             </div>
             <p class="product-subtotal">$ ${(item.price * item.quantity).toFixed(2)}</p>
-            <span><i class="fa-solid fa-x remove-item"></i></span>
+            <span><i  class="fa-solid fa-x remove-item"></i></span>
             </div>
         `
-        //console.log(cartItem);
+        //console.log(cartItem); 
     
         cartItemsDiv.appendChild(cartItem);
     
         removeItem();
     })
 };
+calcCartItems();
+calcTotalPrice();
 generateCartItems();
 
 /*
@@ -94,24 +153,17 @@ let generateCartItem = ()=>{
 generateCartItem();
 */
 
-let increment = (id)=>{
-    let selectedItem = id;
-    console.log(selectedItem);
-    let ItemInBasket = basket.find((x) => x.id === selectedItem.id);
-    ItemInBasket.quantity += 1;
-    console.log(ItemInBasket);
-    quantity = ItemInBasket.quantity;
-    localStorage.setItem("data", JSON.stringify(basket));
-    cartItemsDiv.innerHTML = '';
-    generateCartItems();
-};
 
+/*
 let addItemsBtns = document.querySelectorAll('.bi-plus-lg');
-addItemsBtns.forEach(btn => btn.addEventListener('click', increment()));
+addItemsBtns.forEach(btn => btn.addEventListener('click', increment(btn.parentElement.parentElement)));
 
 
-let decreaseItemsBtns = document.querySelectorAll('.bi-dash-lg');
-console.log(decreaseItemsBtns);
+let decreaseItemsBtns = Array.from(document.querySelectorAll('.bi-dash-lg'));
+for(let btn of decreaseItemsBtns){
+    btn.addEventListener('click', console.log(btn.parentElement.parentElement));
+}
+    console.log(decreaseItemsBtns);
 //decreaseItemsBtn.forEach(btn => btn);
 
 
@@ -119,4 +171,6 @@ let update= ()=>{
     let selectedItem = id;
 
 
-};
+};*/
+
+

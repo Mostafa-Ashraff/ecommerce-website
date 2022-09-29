@@ -20,9 +20,30 @@ menu.addEventListener('click', ()=>{
 
 
 
-let basket = [];
+
+let basket = JSON.parse(localStorage.getItem("data")) || [];
 const addToCartBtns = document.querySelectorAll('.add-to-cart-btn');
 const cartItemsDiv = document.querySelector('.cart-items');
+
+
+let calcCartItems = () =>{
+    let itemsDiv = document.querySelector('.items-no');
+    console.log(itemsDiv)
+    let numberOfItems = basket.map(item=>{
+        return item.quantity
+    }).reduce((prev, curr)=> prev + curr, 0);
+    
+    itemsDiv.textContent = `${numberOfItems}`
+    localStorage.getItem("cartItems")
+        
+    localStorage.setItem("cartItems", numberOfItems);
+    itemsDiv.textContent = `${localStorage.getItem("cartItems")}`;
+    localStorage.setItem("cartItems", numberOfItems);
+    console.log(numberOfItems);
+
+}
+
+calcCartItems();
 
 addToCartBtns.forEach(btn => btn.addEventListener('click', (()=>{
     let selectedProduct = btn.parentElement.parentElement;
@@ -37,10 +58,14 @@ addToCartBtns.forEach(btn => btn.addEventListener('click', (()=>{
 
     }
     localStorage.setItem("data", JSON.stringify(basket));
+    calcCartItems();
     console.log(basket);
 
 })))
 
+
+
+calcCartItems();
 /*
 cards.forEach(card => {
 let cartItem = document.createElement('div');
