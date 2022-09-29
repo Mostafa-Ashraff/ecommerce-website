@@ -32,6 +32,7 @@ a:visited{
     padding: 0px 10px;
 }
 .nav{
+    position: relative;
     background-color: rgba(255, 255, 255, 0.171);
     color: var(--sec-color);
     display: flex;
@@ -80,11 +81,13 @@ a:visited{
     align-items: center;
     justify-content: center;
     display: none;
+    position: relative;
 }
 
 .navbar li {
     list-style: none;
     padding: 0 20px;
+    min-width: fit-content;
 }
 
 .navbar li a{
@@ -105,7 +108,10 @@ a:visited{
 .logo span{
     color: var(--primary-color);
 }
-
+.fa-shopping-cart{
+font-size: 1.6rem;
+justify-self: flex-end;
+}
 .nav-burger{
     display: none;
     cursor: pointer;
@@ -123,6 +129,28 @@ a:visited{
     -moz-transition: 0.3s ease-in-out;
     -ms-transition: 0.3s ease-in-out;
     -o-transition: 0.3s ease-in-out;
+}
+.cart-icon{
+    position: relative;
+}
+.items-no{
+    position:absolute;
+    background-color: var(--primary-color);
+    color: #fff;
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    top: -15px;
+    right: -10px;
+    font-size: 0.8rem;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    z-index: 4;
 }
 
 .nav-burger span:last-child{
@@ -1511,7 +1539,12 @@ footer div:last-child,  .information-flex> div{
         display: flex;
         right: 0;
     }
-
+    .navigation {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 94%;
+    }
     .navbar li {
         padding: 20px 20px;
         z-index: 21;
