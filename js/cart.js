@@ -1,12 +1,48 @@
 basket = JSON.parse(localStorage.getItem("data")) || [];
-let removeItem = ()=>{
-    let removeSpan = document.querySelectorAll('.remove-item');
-    removeSpan.forEach(btn => btn.addEventListener('click', ()=>{
 
-        btn.parentElement.parentElement.remove();
-    }))
-} 
-removeItem();
+
+
+
+
+
+
+let calcTotalPrice = ()=>{
+    if(document.getElementById('total-price')){
+        let totalPrice = document.getElementById('total-price');
+        let amount = basket.map(item=>{
+            return item.price * item.quantity
+        }).reduce((prev, curr)=> prev + curr, 0).toFixed(2);
+        
+        //console.log(amount);
+    
+        totalPrice.textContent = `$${amount}`
+    }else{
+        return;
+    }
+
+    }
+
+
+    let removeItem = ()=>{
+        let removeSpan = document.querySelectorAll('.remove-item');
+        removeSpan.forEach(btn => btn.addEventListener('click', ()=>{
+            
+            let itemInBasket = basket.find((x) => x.id === btn.parentElement.parentElement.id);
+            //console.log(ItemInBasket)
+            itemInBasket.quantity = 0;
+            if(itemInBasket.quantity === 0){
+                basket = basket.filter((item)=>item.quantity !== 0)
+                localStorage.setItem("data", JSON.stringify(basket));
+                btn.parentElement.parentElement.remove();
+            }
+            calcTotalPrice();
+            calcCartItems();
+            generateCartItems();
+        }))
+        
+        //emptyCart();
+    } 
+    removeItem();
 
 let increment = (id)=>{
     let selectedItem = id;
@@ -63,16 +99,8 @@ let decrement = (id)=>{
     
 };
 
-let calcTotalPrice = () =>{
-    let totalPrice = document.getElementById('total-price');
-    let amount = basket.map(item=>{
-        return item.price * item.quantity
-    }).reduce((prev, curr)=> prev + curr, 0).toFixed(2);
-    
-    //console.log(amount);
 
-    totalPrice.textContent = `$${amount}`
-}
+
 /*
 let calcCartItems = () =>{
     let itemsDiv = document.querySelector('.items-no');
@@ -89,6 +117,18 @@ let calcCartItems = () =>{
 
 
 function generateCartItems(){
+    let cartDiv = document.querySelector('.cart');
+    if (basket.length === 0){
+        
+    
+    cartDiv.innerHTML = `
+        <p>Your Cart Is Empty</p>
+        <a class="btn" href="shop.html">Browse Products</a>
+    `
+    }else{
+
+    
+    
     basket.forEach((item)=>{
         //console.log(item);
         let cartItem = document.createElement('div');
@@ -111,16 +151,39 @@ function generateCartItems(){
             <span><i  class="fa-solid fa-x remove-item"></i></span>
             </div>
         `
-        //console.log(cartItem); 
-    
+        //console.log(cartItem);
+        
+
+            /*      cartDiv
+        <div>
+            
+        </div>*/
         cartItemsDiv.appendChild(cartItem);
     
         removeItem();
     })
+    if(!document.getElementById('total-price')){
+    let totalDiv = document.createElement('div');
+    totalDiv.className = 'total-price';
+    totalDiv.innerHTML = `  <h2>Total</h2>
+                            <p id="total-price" class="product-price">$389</p>`;
+    cartDiv.appendChild(totalDiv);
+
+    let paymentDiv = document.createElement('div');
+    paymentDiv.innerHTML = `<a class="btn" href="">proceed to payment</a>`;
+    cartDiv.appendChild(paymentDiv);
+
+
+        }
+    }
+    calcTotalPrice();
+    calcCartItems();
 };
 calcCartItems();
-calcTotalPrice();
+//calcTotalPrice();
 generateCartItems();
+
+
 
 /*
 let generateCartItem = ()=>{

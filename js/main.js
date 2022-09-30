@@ -183,7 +183,7 @@ addToCartBtns.forEach(Btn => Btn.addEventListener('click', ()=>{
     console.log(Btn.parentElement.parentElement.dataset.id)
 }));
 
-*/
+
 
 
 
