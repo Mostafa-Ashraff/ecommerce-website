@@ -7,6 +7,7 @@
     font-family: 'Inter', sans-serif;
     margin:0;
     padding: 0;
+    /*border: 1px solid red;*/
 }
 :root{
     --primary-color: #2A897E;
@@ -250,28 +251,97 @@ justify-self: flex-end;
 
 .chair-hotspot-circle{
     position: absolute;
-    top: -129px;
-    left: 104px;
+    top: 67%;
+    left: 40%;
 }
+
+.hotspot-info{
+    display: none;
+}
+
+.hotspot-info span{
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.chair-hotspot-circle:hover .hotspot-info,
+.sofa-hotspot-circle:hover .hotspot-info,
+.desk-hotspot-circle:hover .hotspot-info,
+.lamp-hotspot-circle:hover .hotspot-info{
+    color: var(--sec-color);
+    background: #fff;
+    display: block;
+    padding: 10px;
+    position: absolute;
+    top: -80px;
+    left: -103%;
+    width: 136px;
+    text-align: center;
+    border-radius: 7px;
+    transform: scale(0.96);
+    animation-name: hotspot-info;
+    animation-duration: 2s;
+    animation-timing-function: cubic-bezier(0, 0, 0.78, 1.05);
+    animation-iteration-count: infinite;
+    -webkit-transform: scale(0.96);
+    -moz-transform: scale(0.96);
+    -ms-transform: scale(0.96);
+    -o-transform: scale(0.96);
+}
+
+.chair-hotspot-circle:hover .hotspot-info::before,
+.sofa-hotspot-circle:hover .hotspot-info::before,
+.desk-hotspot-circle:hover .hotspot-info::before,
+.lamp-hotspot-circle:hover .hotspot-info::before{
+    content: "";
+    /* width: 20px; */
+    /* height: 20px; */
+    border: 8px solid #fff;
+    background: #fff;
+    transform: rotate(45deg);
+    position: absolute;
+    right: 61px;
+    top: 50px;
+    z-index: 2;
+}
+
+
+@keyframes hotspot-info{
+    50%{
+        transform: scale(0.92);
+        -webkit-transform: scale(0.92);
+        -moz-transform: scale(0.92);
+        -ms-transform: scale(0.92);
+        -o-transform: scale(0.92);
+        border: none;
+}
+    
+    100%{
+        transform: scale(0.96);
+        -webkit-transform: scale(0.96);
+        -moz-transform: scale(0.96);
+        -ms-transform: scale(0.96);
+        -o-transform: scale(0.96);
+}
+}
+
 
 .sofa-hotspot-circle{
     position: absolute;
-    top: -118px;
-    left: 244px;
+    top: 75%;
+    left:70%;
 }
 
 .lamp-hotspot-circle{
     position: absolute;
-    top: -318px;
-    left: 224px;
-    
+    top: 25%;
+    left:60%;   
 }
 
 .desk-hotspot-circle{
     position: absolute;
-    top: -147px;
-    left: 364px;
-    
+    top: 65%;
+    left:85%;
 }
 
 .anime-circle{
@@ -540,8 +610,9 @@ button.slick-next{
 #products .slider-card{
     margin: 10px auto;
 }
-.slider-card img{
-    max-width:100%;
+.slider-card img {
+    max-width: 100%;
+    border-radius: 10px;
     z-index: 1;
 }
 .card-text{
@@ -649,7 +720,8 @@ button.slick-next{
     margin-bottom: -1.3px;
 }
 
-.product img{
+.product img {
+    width: 100%;
     max-width: 100%;
 }
 
@@ -970,6 +1042,7 @@ button.slick-next{
 .email input{
     padding: 15px 45px 15px 15px;
     width: 350px;
+    max-width: 100%;
     border: 1px solid#1B1E20;
     border-radius: 25px;
     -webkit-border-radius: 25px;
@@ -1020,6 +1093,7 @@ footer div p, footer div li{
 
 footer div li a{
     text-decoration: none;
+    color: var(--sec-color);
 }
 footer div li a:visited{
     color: var(--sec-color);
@@ -1317,6 +1391,7 @@ footer div:last-child,  .information-flex> div{
     -ms-transition: all 0.3s ease-in;
     -o-transition: all 0.3s ease-in;
 }
+
 
 .details-info .btns a:first-of-type:hover{
     background-color: var(--sec-color);
@@ -1665,9 +1740,20 @@ footer div:last-child,  .information-flex> div{
 .cart-btns{
     font-size: 1rem;
 }
-
 }
 
+@media (max-width: 500px) {
+    .details-info .btns{
+        max-width: 300px;
+    }
+    
+    .details-info .btns>*{
+        max-width: 130px;
+        padding: 0.2rem 1rem;
+        font-size: 0.9rem;
+    }
+    
+}
 
 @media (min-width: 760px) {
     .section-hd{
@@ -1726,56 +1812,53 @@ footer div:last-child,  .information-flex> div{
     }
 
     .anime-circle::before {
-        height: 60px;
-        width: 60px;
+        height: 44px;
+        width: 44px;
     }
 
     .main-circle{
-        height: 60px;
-        width: 60px;
+        height: 44px;
+        width: 44px;
     }
 
     .core-circle {
-        height: 30px;
-        width: 30px;
+        height: 22px;
+        width: 22px;
     }
     
 
-    .chair-hotspot-circle {
+    .chair-hotspot-circle{
         position: absolute;
-        z-index: 999;
-        top: 70%;
-        left: 35%;
+        top: 67%;
+        left: 40%;
+    }
+    
+    .sofa-hotspot-circle{
+        position: absolute;
+        top: 75%;
+        left:70%;
+    }
+    
+    .lamp-hotspot-circle{
+        position: absolute;
+        top: 25%;
+        left:60%;   
+    }
+    
+    .desk-hotspot-circle{
+        position: absolute;
+        top: 65%;
+        left:85%;
     }
     /*
-    .chair-hotspot-circle:after{
+    .chair-hotspot-circle:hover :after{
         content:"LoungeChair $399";
         color: var(--sec-color);
         background-color: #fff;
         width: 100px;
         padding: 10px;
     }*/
-    .sofa-hotspot-circle {
-        z-index: 999;
-        position: absolute;
-        top: 75%;
-        right: -13%;
-    }
 
-    .lamp-hotspot-circle {
-        z-index: 999;
-        position: absolute;
-        top: 20%;
-        left: 60%;
-    }
-
-
-    .desk-hotspot-circle{
-        z-index: 999;
-        position: absolute;
-        top: 65%;
-        right: -34%;
-    }
     .clients-flex{
         padding: 50px 5px;
         max-width: 1400px;

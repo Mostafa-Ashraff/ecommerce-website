@@ -47,14 +47,16 @@ calcCartItems();
 
 addToCartBtns.forEach(btn => btn.addEventListener('click', (()=>{
     let selectedProduct = btn.parentElement.parentElement;
+    console.log(selectedProduct);
     let product = productsData.filter((product)=>product.id === selectedProduct.id);
+    console.log(product)
     if(!basket.find((x)=>x.id ===product[0].id)){
         product[0].quantity = 1;
         basket.push(product[0]);
     }else{
-        let basketProduct = basket.find((x)=>x.id ===product[0].id);
+        let productInBasket = basket.find((x)=>x.id ===product[0].id);
         
-        basketProduct.quantity += 1;
+        productInBasket.quantity += 1;
 
     }
     localStorage.setItem("data", JSON.stringify(basket));
@@ -66,205 +68,47 @@ addToCartBtns.forEach(btn => btn.addEventListener('click', (()=>{
 
 
 calcCartItems();
-/*
-cards.forEach(card => {
-let cartItem = document.createElement('div');
-cartItem.className = 'cart-item';
-
-const imgDiv = document.createElement('div');
-
-let itemImg = document.createElement('img');
-itemImg.src =  `${card.firstElementChild.src}`;
-imgDiv.appendChild(itemImg);
-
-cartItem.appendChild(imgDiv);
-
-const detailsDiv = document.createElement('div');
-detailsDiv.className = 'product-details';
-const itemHd = document.createElement('h3');
-itemHd.className = 'product-name';
-itemHd.textContent = `${card.children[1].children[0].textContent}`;
-const itemPrice = document.createElement('p');
-itemPrice.className = 'product-price';
-itemPrice.textContent = `${card.children[1].children[1].textContent}`;
 
 
-detailsDiv.appendChild(itemHd);
-detailsDiv.appendChild(itemPrice);
+let toViewDetails =[];
 
-cartItem.appendChild(detailsDiv);
+let viewDetailsBtns = Array.from(document.querySelectorAll('.view-details-btn'));
 
-const inputQuan = document.createElement('input');
-inputQuan.className = 'product-quantity';
-cartItem.appendChild(inputQuan);
-
-const sbTotal = document.createElement('p');
-sbTotal.className = 'product-subtotal';
-cartItem.appendChild(sbTotal);
-
-const removeSpan = document.createElement('span');
-removeSpan.innerHTML = '<i class="fa-solid fa-x remove-item"></i>';
-cartItem.appendChild(removeSpan);
-
-
-const hr = document.createElement('hr');
-cartItem.appendChild(hr);
-
-const cartDiv = document.querySelector('.cart');
-
-cartDiv.appendChild(cartItem);
-});
-*/
-
-
-
-
-
+viewDetailsBtns.forEach(btn => btn.addEventListener('click', (()=>{
+    let toViewDetails =[];
+    let selectedProduct = btn.parentElement.parentElement;
+    /*console.log(selectedProduct);*/
+    let detailedproduct = productsData.filter((product)=>product.id === selectedProduct.id);
+    toViewDetails.push(detailedproduct[0]);
+    console.log(toViewDetails);
+    localStorage.removeItem("details");
+    localStorage.setItem("details", JSON.stringify(toViewDetails));
+    window.location.href="http://127.0.0.1:5500/product-details.html";
+})))
 
 /*
-addToCartBtns.forEach(Btn => Btn.addEventListener('click', ()=>{
-    let productID = Btn.parentElement.parentElement.id;
-    console.log(productID)
-    let product = productsData.find((product)=>{
-        product.id === `${productID}`;
-    });
-    console.log(product)
-    product = {...prod};
+viewDetailsBtns.forEach(btn => {
+    btn.addEventListener('click', (()=>{
+        let  selectedProduct = btn.parentElement.parentElement;
+        let product = productsData.filter((product)=>product.id === selectedProduct.id);
+        console.log(product);
+    }))
 
-    console.log(product)
-    let cartItem = document.createElement('div');
-    cartItem.className = 'cart-item';
-
-    const imgDiv = document.createElement('div');
-
-    let itemImg = document.createElement('img');
-    itemImg.src =  `${product.img}`;
-    imgDiv.appendChild(itemImg);
-
-    cartItem.appendChild(imgDiv);
-
-    const detailsDiv = document.createElement('div');
-    detailsDiv.className = 'product-details';
-    const itemHd = document.createElement('h3');
-    itemHd.className = 'product-name';
-    itemHd.textContent = `${product.name}`;
-    const itemPrice = document.createElement('p');
-    itemPrice.className = 'product-price';
-    itemPrice.textContent = `${product.price}`;
-
-
-    detailsDiv.appendChild(itemHd);
-    detailsDiv.appendChild(itemPrice);
-
-    cartItem.appendChild(detailsDiv);
-
-    const quantityDiv = document.createElement('div');
-    quantityDiv.className = 'cart-btns';
-    quantityDiv.innerHTML = `
-    <i onclick="increment(${id})" class="bi bi-dash-lg"></i>
-    <div id="" class="quantity">1</div>
-    <i class="bi bi-plus-lg"></i>
-    `
-    cartItem.appendChild(quantityDiv);
-
-    const sbTotal = document.createElement('p');
-    sbTotal.className = 'product-subtotal';
-    sbTotal.textContent = `${product.price}`;
-    cartItem.appendChild(sbTotal);
-
-    const removeSpan = document.createElement('span');
-    removeSpan.innerHTML = '<i class="fa-solid fa-x remove-item"></i>';
-    cartItem.appendChild(removeSpan);
-
-
-    const cartDiv = document.querySelector('.cart-items');
-
-    cartDiv.appendChild(cartItem);
-    console.log(Btn.parentElement.parentElement.dataset.id)
-}));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function createCartItem(){
-    let productID = Btn.parentElement.parentElement.dataset.id;
-    let product = productsData.filter((product)=>{
-        product.id == productID;
-    });
-
-    let cartItem = document.createElement('div');
-    cartItem.className = 'cart-item';
-
-    const imgDiv = document.createElement('div');
-
-    let itemImg = document.createElement('img');
-    itemImg.src =  `${product.img}`;
-    imgDiv.appendChild(itemImg);
-
-    cartItem.appendChild(imgDiv);
-
-    const detailsDiv = document.createElement('div');
-    detailsDiv.className = 'product-details';
-    const itemHd = document.createElement('h3');
-    itemHd.className = 'product-name';
-    itemHd.textContent = `${product.name}`;
-    const itemPrice = document.createElement('p');
-    itemPrice.className = 'product-price';
-    itemPrice.textContent = `${product.price}`;
-
-
-    detailsDiv.appendChild(itemHd);
-    detailsDiv.appendChild(itemPrice);
-
-    cartItem.appendChild(detailsDiv);
-
-    const inputQuan = document.createElement('input');
-    inputQuan.className = 'product-quantity';
-    cartItem.appendChild(inputQuan);
-
-    const sbTotal = document.createElement('p');
-    sbTotal.className = 'product-subtotal';
-    sbTotal.textContent = `${product.price}`;
-    cartItem.appendChild(sbTotal);
-
-    const removeSpan = document.createElement('span');
-    removeSpan.innerHTML = '<i class="fa-solid fa-x remove-item"></i>';
-    cartItem.appendChild(removeSpan);
-
-
-    const cartDiv = document.querySelector('.cart-items');
-
-    cartDiv.appendChild(cartItem);
-    
-}
-
-
-
-
-
-
-
-/*
-const totalDiv = document.createElement('div');
-totalDiv.className = 'total-price';
-const total = document.createElement('h2');
-const totalPrice = document.createElement('p');
-totalPrice.className = 'product-price';
-
-const paymentDiv = document.createElement('div');
-const total = document.createElement('h2');
-const totalPrice = document.createElement('p');
-totalPrice.className = 'product-price';*/
-
+})
+`
+            <div>
+                <img src="imgs/shop/5.jpg" alt="">
+            </div>
+            <div class="details-info">
+                <h2>RH Aesthetically Comfortable Wingback Chair</h2>
+                <p class="price">£449.00</p>
+                <p>Tax included.</p>
+                <div class="btns">
+                    <a href="#" class="add-to-cart add-to-cart-btn">Add To Cart</a>
+                    <a href="#" class="add-to-cart">Add To Favorites</a>
+                </div>
+                <p>The RH Aesthetically Comfortable Wingback armchair is a total package of style and function for your home or workspace. Its richly hued soft-to-the-touch upholstery, detailed vertical channel-tufted backrest, and brass-toned tapered metal legs set the stage for a memorable design experience.</p>
+                <p>Offered in various colors and fabric textures, this outstanding armchair will serve as an anchor piece, allowing you to indulge in comfort and will completely transform your room from bland to modern-day glam.</p>
+                <p class="dimensions">W67 x D73 x H80cm</p>
+            </div>
+`*/

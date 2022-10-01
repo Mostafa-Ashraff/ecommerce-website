@@ -37,7 +37,15 @@ let calcTotalPrice = ()=>{
             }
             calcTotalPrice();
             calcCartItems();
-            generateCartItems();
+            let cartDiv = document.querySelector('.cart');
+            if (basket.length === 0){
+                
+            
+            cartDiv.innerHTML = `
+                <p>Your Cart Is Empty</p>
+                <a class="btn" href="shop.html">Browse Products</a>
+            `
+            }
         }))
         
         //emptyCart();
