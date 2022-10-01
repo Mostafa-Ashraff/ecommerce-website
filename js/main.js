@@ -112,3 +112,56 @@ viewDetailsBtns.forEach(btn => {
                 <p class="dimensions">W67 x D73 x H80cm</p>
             </div>
 `*/
+
+
+
+
+
+
+
+
+//////////////////Animations//////////////////////
+
+
+const tl = gsap.timeline({ paused: true });
+
+tl.fromTo(".hero-img", 1, {
+    x: 500,
+    
+}, {
+    x:0,
+    ease: "power1.inOut"
+});
+
+tl.fromTo(".hero-hd", 1, {
+    y: 500,
+    
+}, {
+    y:0,
+    ease: "power2.inOut"
+},"-=0.8");
+tl.fromTo(".hero-p", 1, {
+    y: 500,
+    
+}, {
+    y:0,
+    ease: "power2.inOut"
+}, "-=0.8");
+tl.fromTo(".hero-btn", 1, {
+    y: 500,
+    
+}, {
+    y:0,
+    ease: "power2.inOut"
+}, "-=0.6");
+
+tl.fromTo(".nav", 0.8, {
+    y: -100,
+    
+}, {
+    y:0,
+    ease: "bounce.out"
+});
+
+
+tl.play()

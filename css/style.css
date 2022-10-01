@@ -447,6 +447,7 @@ justify-self: flex-end;
     flex-direction: column;
     justify-content: space-between;
     text-align: center;
+    overflow: hidden;
 }
 
 .hero-hd{
@@ -718,6 +719,43 @@ button.slick-next{
 .product{
     flex: 1 1 390px;
     margin-bottom: -1.3px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.product:hover img{
+    opacity: 0.5;
+    
+}
+
+.product:hover:before{
+    content:"For Residence";
+    filter: opacity(1);
+    font-size: 1.9rem;
+    font-weight: 700;
+    color: var(--sec-color);
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-filter: opacity(1);
+    z-index: 10;
+}
+.product:hover:after{
+    content:"Eco-Friendly";
+    filter: opacity(1);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    position: absolute;
+    top: 55%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-filter: opacity(1);
+    z-index: 10;
 }
 
 .product img {
@@ -739,7 +777,7 @@ button.slick-next{
 .collectible{
     flex: 1 1 240px;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     gap: 20px;
     align-items:center;
     margin-bottom: 10px;
@@ -819,6 +857,7 @@ button.slick-next{
 .testimonials{
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 20px;
 }
 .testimonial{
@@ -1753,8 +1792,18 @@ footer div:last-child,  .information-flex> div{
         font-size: 0.9rem;
     }
     
+    .
 }
 
+@media (max-width: 760px) {
+    .hero-text{
+        text-align: center;
+    }
+
+    .hero-hd, .hero-p{
+        text-align: center;
+    }
+}
 @media (min-width: 760px) {
     .section-hd{
         font-size: 2.4rem;
@@ -1785,6 +1834,7 @@ footer div:last-child,  .information-flex> div{
     }
     .hero-p{
         font-size: 1.2rem;
+        line-height: 1.7rem;
     }
     .hero-text{
 
@@ -1878,6 +1928,15 @@ footer div:last-child,  .information-flex> div{
 
     .product img {
         height: 100%;
+    }
+    .product:hover:before{
+        font-size: 1.3rem;
+        font-weight: 600;
+        z-index: 4;
+    }
+    .product:hover:after{
+        font-size: 1rem;
+        font-weight: 400;
     }
 
     .collectible {
@@ -2245,3 +2304,14 @@ footer div:last-child,  .information-flex> div{
 
 }
 
+
+@media (max-width: 1200px){
+    .hero-text {
+        text-align: left;
+        gap: 10px;
+    }
+
+    .hero-hd{
+        margin-top: 30px;
+    }
+}

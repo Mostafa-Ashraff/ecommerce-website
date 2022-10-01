@@ -7,7 +7,7 @@ let generateCard = ()=>{
                     <img src="${img}" alt="">
                     <div class="card-links">
                     <span class="add-to-cart-btn"><i><i class="bi bi-cart3"></i></i></span>
-                    <span><i class="bi bi-eye-fill"></i></span>
+                    <span class="view-details-btn"><i class="bi bi-eye-fill"></i></span>
                     </div>
                     <div class="card-text">
                         <p>${name}</p>
