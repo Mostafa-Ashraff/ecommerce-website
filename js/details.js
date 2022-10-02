@@ -10,7 +10,7 @@ let generateProductDet = ()=>{
     </div>
     <div class="details-info" id="${detailedproduct[0].id}">
         <h2>${detailedproduct[0].name}</h2>
-        <p class="price">£${detailedproduct[0].price}</p>
+        <p class="price">$ ${detailedproduct[0].price}</p>
         <p>Tax included.</p>
         <div class="btns">
             <a href="#" class="add-to-cart add-to-cart-btn">Add To Cart</a>

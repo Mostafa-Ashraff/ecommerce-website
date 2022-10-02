@@ -124,44 +124,166 @@ viewDetailsBtns.forEach(btn => {
 
 
 const tl = gsap.timeline({ paused: true });
-
-tl.fromTo(".hero-img", 1, {
-    x: 500,
+if(document.querySelector('.home')){
+    tl.fromTo(".hero-img", 1, {
+        x: 500,
+        
+    }, {
+        x:0,
+        ease: "power1.inOut"
+    });
     
-}, {
-    x:0,
-    ease: "power1.inOut"
-});
-
-tl.fromTo(".hero-hd", 1, {
-    y: 500,
+    tl.fromTo(".hero-hd", 1, {
+        y: 500,
+        
+    }, {
+        y:0,
+        ease: "power2.inOut"
+    },"-=0.8");
+    tl.fromTo(".hero-p", 1, {
+        y: 500,
+        
+    }, {
+        y:0,
+        ease: "power2.inOut"
+    }, "-=0.8");
+    tl.fromTo(".hero-btn", 1, {
+        y: 500,
+        
+    }, {
+        y:0,
+        ease: "power2.inOut"
+    }, "-=0.6");
     
-}, {
-    y:0,
-    ease: "power2.inOut"
-},"-=0.8");
-tl.fromTo(".hero-p", 1, {
-    y: 500,
+    tl.fromTo(".nav", 0.8, {
+        y: -100,
+        
+    }, {
+        y:0,
+        ease: "bounce.out"
+    });
     
-}, {
-    y:0,
-    ease: "power2.inOut"
-}, "-=0.8");
-tl.fromTo(".hero-btn", 1, {
-    y: 500,
-    
-}, {
-    y:0,
-    ease: "power2.inOut"
-}, "-=0.6");
-
-tl.fromTo(".nav", 0.8, {
-    y: -100,
-    
-}, {
-    y:0,
-    ease: "bounce.out"
-});
+    tl.play();
+};
 
 
-tl.play()
+if(document.querySelector('.about-grid')){
+    tl.fromTo(".img1", 1, {
+        y: -900,
+        
+    }, {
+        y:0,
+        ease: "power1.inOut"
+    });
+    tl.fromTo("#about-info1", 1, {
+        x: 700,
+        
+    }, {
+        x:0,
+        ease: "power1.inOut"
+    }, "-=0.2");
+    tl.fromTo("#about-info2", 1, {
+        x: 700,
+        
+    }, {
+        x:0,
+        ease: "power1.inOut"
+    }, "-=0.2");
+    tl.fromTo(".img2", 1, {
+        y: 900,
+        
+    }, {
+        y:0,
+        ease: "power1.inOut"
+    }, "-=0.2");
+    tl.play();
+}
+
+if(document.querySelector('#shop')){
+    
+for(let i = 1; i<13; i++){
+    console.log(i)
+    tl.fromTo(`#a${i}`, 1, {
+        opacity: 00,
+        y: -200
+    }, {
+        y: 0,
+        opacity:1,
+        ease: "power1.inOut"
+    }, "-=0.5");
+    tl.play();
+}
+}
+
+if(document.querySelector('#blog')){
+    let posts = Array.from(document.querySelectorAll('.post'));
+
+        tl.fromTo(posts[0], 1, {
+            x: -500,
+            
+        }, {
+            x:0,
+            ease: "power1.inOut"
+        });
+        tl.fromTo(posts[1], 1, {
+            y:-500,
+            
+        }, {
+            y:0,
+            ease: "power1.inOut"
+        },"-=1");
+        tl.fromTo(posts[2], 1, {
+            x: 500,
+            
+        }, {
+            x:0,
+            ease: "power1.inOut"
+        },"-=0.2");
+        tl.play();
+    
+    
+}
+
+if(document.querySelector('.contact-grid')){
+    tl.fromTo(".qs", 1, {
+        x: -900,
+        
+    }, {
+        x:0,
+        ease: "power1.inOut"
+    });
+    tl.fromTo(".office", 1, {
+        x: -900,
+        
+    }, {
+        x:0,
+        ease: "power1.inOut"
+    }, "-=0.8");
+    tl.fromTo(".store", 1, {
+        x: -900,
+        
+    }, {
+        x:0,
+        ease: "power1.inOut"
+    }, "-=0.8");
+    tl.fromTo("form", 1, {
+        x: 900,
+        
+    }, {
+        x:0,
+        ease: "power1.inOut"
+    }, "-=1");
+
+
+    tl.fromTo(".map", 1, {
+            y: 900,
+            
+        }, {
+            y:0,
+            ease: "power1.inOut"
+        }, );
+
+    
+    tl.play();
+    
+}
