@@ -28,7 +28,7 @@ const cartItemsDiv = document.querySelector('.cart-items');
 
 let calcCartItems = () =>{
     let itemsDiv = document.querySelector('.items-no');
-    console.log(itemsDiv)
+    //console.log(itemsDiv)
     let numberOfItems = basket.map(item=>{
         return item.quantity
     }).reduce((prev, curr)=> prev + curr, 0);
@@ -39,7 +39,7 @@ let calcCartItems = () =>{
     localStorage.setItem("cartItems", numberOfItems);
     itemsDiv.textContent = `${localStorage.getItem("cartItems")}`;
     localStorage.setItem("cartItems", numberOfItems);
-    console.log(numberOfItems);
+    //console.log(numberOfItems);
 
 }
 
@@ -49,7 +49,7 @@ addToCartBtns.forEach(btn => btn.addEventListener('click', (()=>{
     let selectedProduct = btn.parentElement.parentElement;
     console.log(selectedProduct);
     let product = productsData.filter((product)=>product.id === selectedProduct.id);
-    console.log(product)
+    //console.log(product)
     if(!basket.find((x)=>x.id ===product[0].id)){
         product[0].quantity = 1;
         basket.push(product[0]);
@@ -61,7 +61,7 @@ addToCartBtns.forEach(btn => btn.addEventListener('click', (()=>{
     }
     localStorage.setItem("data", JSON.stringify(basket));
     calcCartItems();
-    console.log(basket);
+    //console.log(basket);
 
 })))
 
@@ -80,7 +80,7 @@ viewDetailsBtns.forEach(btn => btn.addEventListener('click', (()=>{
     /*console.log(selectedProduct);*/
     let detailedproduct = productsData.filter((product)=>product.id === selectedProduct.id);
     toViewDetails.push(detailedproduct[0]);
-    console.log(toViewDetails);
+    //console.log(toViewDetails);
     localStorage.removeItem("details");
     localStorage.setItem("details", JSON.stringify(toViewDetails));
     window.location.href="http://127.0.0.1:5500/product-details.html";

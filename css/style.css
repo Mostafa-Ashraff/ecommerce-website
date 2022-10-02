@@ -667,7 +667,9 @@ button.slick-next{
     left: 55%;
 }
 
-
+a{
+    color: var(--sec-color);
+}
 /*
 .card-text::before{
     cursor: pointer;

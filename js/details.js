@@ -1,6 +1,6 @@
 let detailedproduct = JSON.parse(localStorage.getItem('details')) || [];
 
-console.log(detailedproduct);
+//console.log(detailedproduct);
 let generateProductDet = ()=>{
 
     let detailsDiv = document.querySelector('.details');
